@@ -1,6 +1,6 @@
 include <fan_40mm.scad>
 
-//handle();
+handle();
 
 module handle(){
     BATTERY_DIAMETER = 21;
@@ -19,9 +19,16 @@ module handle(){
                 fan();
             }
         }
-    }
-
-    translate([60,0,-50]){
-        cylinder(r=(BATTERY_DIAMETER/2)+3,h=50);
+        
+        translate([59.5,0,-40]){
+            cylinder(r=(BATTERY_DIAMETER/2)+3,h=50);
+        }
+        
+        // cable mgmt
+        translate([18,10,-1]){
+            rotate([0,0,-10]){
+                cube([38,10,11]);
+            }
+        }
     }
 }

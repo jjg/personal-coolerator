@@ -13,7 +13,7 @@ lid(CUP_DIAMETER+3, CUP_DIAMETER);
 
 color("green")
 // fan
-translate([-20,-10,25]){
+translate([-20,-10,20]){
     rotate([-90,0,0]){
         fan();
     }
@@ -21,7 +21,7 @@ translate([-20,-10,25]){
 
 color("blue")
 // handle
-translate([0,10,30]){
+translate([0,10,10]){
     handle();
 }
 
