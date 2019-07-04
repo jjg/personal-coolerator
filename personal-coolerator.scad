@@ -1,4 +1,5 @@
 include <fan_40mm.scad>
+include <coolerator-handle.scad>
 
 MOTOR_DIAMETER = 35;
 MOTOR_HEIGHT = 25;
@@ -14,8 +15,25 @@ $fn=100;
 // TODO: duct
 // TOOD: battery case
 
+color("red")
 // cup lid
 lid(CUP_DIAMETER+3, CUP_DIAMETER, FAN_DIAMETER, MOTOR_DIAMETER);
+
+color("green")
+// fan
+translate([-20,-10,25]){
+    rotate([-90,0,0]){
+        fan();
+    }
+}
+
+
+color("blue")
+// handle
+translate([0,10,30]){
+    handle();
+}
+
 /*
 // 40mm fan
 translate([0,0,10]){
