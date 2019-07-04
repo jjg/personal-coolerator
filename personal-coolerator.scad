@@ -1,3 +1,5 @@
+include <fan_40mm.scad>
+
 MOTOR_DIAMETER = 35;
 MOTOR_HEIGHT = 25;
 MOTOR_SHAFT_DIAMETER = 2;
@@ -14,21 +16,33 @@ $fn=100;
 
 // cup lid
 lid(CUP_DIAMETER+3, CUP_DIAMETER, FAN_DIAMETER, MOTOR_DIAMETER);
+/*
+// 40mm fan
+translate([0,0,10]){
+    rotate([-90,0,0]){
+        fan();
+    }
+}
+*/
 
 // motor
+/*
 translate([0,FAN_DIAMETER/5,-15]){
-  //motor(MOTOR_DIAMETER, MOTOR_HEIGHT, MOTOR_SHAFT_DIAMETER, MOTOR_SHAFT_LENGTH);
+  motor(MOTOR_DIAMETER, MOTOR_HEIGHT, MOTOR_SHAFT_DIAMETER, MOTOR_SHAFT_LENGTH);
 }
 
 // fan
 translate([0,FAN_DIAMETER/5,12]){
   //fan(FAN_DIAMETER, 5, 10, MOTOR_SHAFT_DIAMETER);
 }
+*/
 
 // duct
+/*
 translate([-20/2, -CUP_DIAMETER/3, 5]){
-  //duct(40,25);
+  duct(40,25);
 }
+*/
 
 module motor(diameter, height, shaft_diameter, shaft_length) {
   cylinder(r=diameter/2, h=height);
@@ -36,7 +50,7 @@ module motor(diameter, height, shaft_diameter, shaft_length) {
     cylinder(r=shaft_diameter/2, h=shaft_length);
   }
 }
-
+/*
 module fan(diameter, height, blades, shaft_diameter){
   difference(){
     union(){
@@ -52,6 +66,7 @@ module fan(diameter, height, blades, shaft_diameter){
     }
   }
 }
+*/
 
 module lid(od, id, fan_diameter, motor_diameter){
   difference(){
@@ -59,10 +74,18 @@ module lid(od, id, fan_diameter, motor_diameter){
     translate([0,0,-3]){
       cylinder(r=id/2, h=10);
     }
-    
+    /*
     // fan hole
     translate([0,fan_diameter/5, 0]){
       cylinder(r=fan_diameter/2, h=14);
+    }
+    */
+    
+    // fan mount opening
+    translate([-(CUP_DIAMETER/2)+23,-10,21]){
+        rotate([-90,0,0]){
+            fan();
+        }
     }
     
     // duct hole
@@ -75,7 +98,7 @@ module lid(od, id, fan_diameter, motor_diameter){
       }
     }
   }
-  
+  /*
   // motor mount
   difference(){
     union(){
@@ -93,6 +116,7 @@ module lid(od, id, fan_diameter, motor_diameter){
       cylinder(r=motor_diameter/2, h=14);
     }
   }
+  */
 }
 
 module duct(length, angle){

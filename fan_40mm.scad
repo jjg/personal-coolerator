@@ -2,6 +2,7 @@ module fan(){
 
   FAN_HOLE_DIAMETER = 38;
   HOLE_DEPTH = 25;
+  MOUNTING_HOLE_DIAMETER = 3.5;
   
   //difference(){
   union(){
