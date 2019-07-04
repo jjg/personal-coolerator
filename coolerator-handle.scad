@@ -1,31 +1,39 @@
 include <fan_40mm.scad>
 
+//handle();
+
 module handle(){
     BATTERY_DIAMETER = 21;
 
     difference(){
         hull(){
-            cylinder(r=25,h=12);
+            cylinder(r=25,h=23);
             
             translate([60,0,0]){
-                cylinder(r=(BATTERY_DIAMETER/2)+3,h=12);
+                cylinder(r=(BATTERY_DIAMETER/2)+3,h=23);
             }
         }
         
+        // fan mount & airway cut-outs
         translate([-20,20,-0.5]){
             rotate([90,0,0]){
                 fan();
             }
         }
         
-        translate([59.5,0,-40]){
+        // extra fan clearance
+        translate([-22,-22,-1]){
+            cube([44,44,21]);
+        }
+        
+        translate([59.5,0,-30]){
             cylinder(r=(BATTERY_DIAMETER/2)+3,h=50);
         }
         
         // cable mgmt
-        translate([18,10,-1]){
+        translate([18,8,-1]){
             rotate([0,0,-10]){
-                cube([38,10,11]);
+                cube([38,10,21]);
             }
         }
     }
