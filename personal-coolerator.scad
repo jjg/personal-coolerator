@@ -5,27 +5,26 @@ include <coolerator-duct.scad>
 
 CUP_DIAMETER = 86;
 
-//$fn=100;
-
-color("red")
 // cup lid
+color("red")
 lid(CUP_DIAMETER+3, CUP_DIAMETER);
 
-color("green")
 // fan
-translate([-20,-10,20]){
+color("green")
+translate([-20,-10,35]){
     rotate([-90,0,0]){
         fan();
     }
 }
 
-color("blue")
 // handle
-translate([0,10,10]){
+color("blue")
+translate([0,10,40]){
     handle();
 }
 
 // duct
+color("orange")
 translate([-20/2, -CUP_DIAMETER/3, 5]){
   duct(40,25);
 }

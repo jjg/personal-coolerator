@@ -1,7 +1,5 @@
 include <fan_40mm.scad>
 
-lid(80, 83);
-
 module lid(od, id){
   difference(){
     cylinder(r=od/2, h=10);
@@ -10,7 +8,7 @@ module lid(od, id){
     }
     
     // fan mount opening
-    translate([-(od/2)+20,-10,21]){
+    translate([-20,-10,21]){
         rotate([-90,0,0]){
             fan();
         }

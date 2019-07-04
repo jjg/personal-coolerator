@@ -11,17 +11,17 @@ module tube(length){
    difference(){
     // outer
     hull(){
-      cylinder(r=7, h=length);
+      cylinder(r=8, h=length);
       translate([20,0,0]){
-        cylinder(r=7, h=length);
+        cylinder(r=8, h=length);
       }
     }
     // inner
     translate([0,0,-1]){
       hull(){
-        cylinder(r=7-1, h=length+2);
+        cylinder(r=7, h=length+2);
         translate([20,0,0]){
-          cylinder(r=7-1, h=length+2);
+          cylinder(r=7, h=length+2);
         }
       }
     }

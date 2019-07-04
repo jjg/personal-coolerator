@@ -1,7 +1,5 @@
 include <fan_40mm.scad>
 
-handle();
-
 module handle(){
     BATTERY_DIAMETER = 21;
 
