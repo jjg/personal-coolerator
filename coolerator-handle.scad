@@ -1,5 +1,14 @@
 include <fan_40mm.scad>
 
+/*
+  usb battery measurements:
+  diameter: 22mm
+    with clip: 23mm
+  clip width: 9mm
+  "bottom" of USB input: 6mm
+  distance from battery top to USB plug "flange": ~5mm
+*/
+
 //handle();
 
 module handle(){
