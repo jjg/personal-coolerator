@@ -1,4 +1,5 @@
 include <fan_40mm.scad>
+include <coolerator-battery.scad>
 
 /*
   usb battery measurements:
@@ -9,8 +10,14 @@ include <fan_40mm.scad>
   distance from battery top to USB plug "flange": ~5mm
 */
 
-//handle();
-
+handle();
+/*
+translate([59.5,0,20]){
+  rotate([180,0,-90]){
+    battery();
+  }
+}
+*/
 module handle(){
     BATTERY_DIAMETER = 21;
 
@@ -35,8 +42,14 @@ module handle(){
             cube([44,44,21]);
         }
         
+        // base battery opening
         translate([59.5,0,-30]){
-            cylinder(r=(BATTERY_DIAMETER/2)+3,h=50);
+          cylinder(r=(BATTERY_DIAMETER/2)+3,h=50);
+          /*
+          rotate([180,0,-90]){
+            battery();
+          }
+          */
         }
         
         // cable mgmt
